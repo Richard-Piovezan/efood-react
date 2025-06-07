@@ -27,9 +27,9 @@ const Home = () => {
   const [restaurants, setRestaurants] = useState<RestaurantAPI[]>([])
 
   useEffect(() => {
-    fetch('https:/fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((a) => a.json())
-      .then((a) => setRestaurants(a))
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setRestaurants(res))
   }, [])
 
   return (

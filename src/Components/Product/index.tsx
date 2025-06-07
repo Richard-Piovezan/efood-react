@@ -1,9 +1,14 @@
-import { Btn, ProductContainer } from './styles'
+import { priceFormat } from '../RestaurantsList'
+import { Btn, ProductContainer, ProductImg } from './styles'
 
-const Product = () => {
-  const descriptionImprovised =
-    'A clássica Marguerita: molho dsa dsad sadas sdabdhjsabhjdsba vbjdhsabvhjdsa dsajhdbsajh dsajk tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
+type Props = {
+  img: string
+  title: string
+  description: string
+  price: number
+}
 
+const Product = ({ img, title, description, price }: Props) => {
   const getDescription = (desc: string) => {
     if (desc.length > 155) {
       return desc.slice(0, 155) + '...'
@@ -13,10 +18,10 @@ const Product = () => {
 
   return (
     <ProductContainer>
-      <img src="//placehold.co/304x168" alt="Imagem do produto" />
-      <h3>Pizza Marguerita</h3>
-      <p>{getDescription(descriptionImprovised)}</p>
-      <Btn>Adicionar ao Carrinho</Btn>
+      <ProductImg src={img} alt="Imagem do produto" />
+      <h3>{title}</h3>
+      <p>{getDescription(description)}</p>
+      <Btn>{priceFormat(price)} - Mais Detalhes</Btn>
     </ProductContainer>
   )
 }

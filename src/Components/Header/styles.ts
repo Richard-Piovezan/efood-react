@@ -4,7 +4,7 @@ import Background from '../../assets/images/background.png'
 import { colors } from '../../styles'
 
 export const HeaderContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 186px;
   background-image: url(${Background});
   background-size: cover;

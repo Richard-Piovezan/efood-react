@@ -4,7 +4,7 @@ import { colors } from '../../styles'
 export const Container = styled.div`
   background-color: ${colors.pastel_tone};
   padding: 40px;
-  width: 100vw;
+  width: 100%;
   height: 298px;
   margin-top: 120px;
   text-align: center;

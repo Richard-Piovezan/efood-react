@@ -3,45 +3,54 @@ import StarImg from '../../assets/images/star.png'
 import Tag from '../Tag'
 import * as S from './styles'
 
-export type Props = {
-  name: string
-  image: string
-  classification: number
-  description: string
-  tag: string
+type Props = {
+  id: number
   popular?: boolean
-  link: string
+  type: string
+  banner: string
+  title: string
+  rate: number
+  description: string
 }
 
 const Restaurant = ({
-  name,
-  classification,
+  id,
+  banner,
   description,
-  popular,
-  tag,
-  image,
-  link
-}: Props) => (
-  <S.RestaurantContainer>
-    <S.Tags>
-      {popular === true && <Tag text="Destaque da semana" />}
-      <Tag text={tag} />
-    </S.Tags>
-    <S.BannerRestaurant src={image} alt="Restaurante" />
-    <S.InfosContainer>
-      <S.InfosHeader>
-        <h3>{name}</h3>
-        <span>
-          {classification}
-          <img src={StarImg} alt="Classificação" />
-        </span>
-      </S.InfosHeader>
-      <S.Description>{description}</S.Description>
-      <S.Button>
-        <Link to={link}>Saiba Mais</Link>
-      </S.Button>
-    </S.InfosContainer>
-  </S.RestaurantContainer>
-)
+  rate,
+  title,
+  type,
+  popular
+}: Props) => {
+  const getDescription = (description: string) => {
+    if (description.length > 245) {
+      return description.slice(0, 245) + '...'
+    }
+    return description
+  }
+
+  return (
+    <S.RestaurantContainer>
+      <S.Tags>
+        {popular === true && <Tag text="Destaque da semana" />}
+        <Tag text={type} />
+      </S.Tags>
+      <S.BannerRestaurant src={banner} alt="Restaurante" />
+      <S.InfosContainer>
+        <S.InfosHeader>
+          <h3>{title}</h3>
+          <span>
+            {rate}
+            <img src={StarImg} alt="Classificação" />
+          </span>
+        </S.InfosHeader>
+        <S.Description>{getDescription(description)}</S.Description>
+        <S.Button>
+          <Link to={`/cardapio/${id}`}>Saiba Mais</Link>
+        </S.Button>
+      </S.InfosContainer>
+    </S.RestaurantContainer>
+  )
+}
 
 export default Restaurant

@@ -4,7 +4,7 @@ import Background from '../../assets/images/background.png'
 export const BannerContainer = styled.div`
   background-image: url(${Background});
   background-size: cover;
-  width: 100vw;
+  width: 100%;
   height: 280px;
   display: flex;
   justify-content: center;

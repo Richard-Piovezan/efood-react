@@ -1,25 +1,32 @@
-import RestaurantIndividual from '../../models/Restaurant'
 import Restaurant from '../Restaurants'
 import { Container, List } from './styles'
+import { RestaurantAPI } from '../../pages/Home'
 
 export type Props = {
-  restaurant: RestaurantIndividual[]
+  restaurant: RestaurantAPI[]
+}
+
+export const priceFormat = (price: number) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
 }
 
 const RestaurantsList = ({ restaurant }: Props) => (
   <Container>
     <div className="container">
       <List>
-        {restaurant.map((restaurant) => (
+        {restaurant.map((item) => (
           <Restaurant
-            key={restaurant.id}
-            image={restaurant.image}
-            name={restaurant.name}
-            classification={restaurant.classification}
-            description={restaurant.description}
-            tag={restaurant.tag}
-            popular={restaurant.popular}
-            link={restaurant.link}
+            key={item.id}
+            id={item.id}
+            banner={item.capa}
+            title={item.titulo}
+            rate={item.avaliacao}
+            description={item.descricao}
+            type={item.tipo}
+            popular={item.destacado}
           />
         ))}
       </List>

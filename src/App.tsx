@@ -1,25 +1,15 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { GlobalStyle } from './styles'
-import Home from './pages/Home'
-import RestaurantPage from './pages/RestaurantPage'
-
-const tracks = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/paginadeprodutos',
-    element: <RestaurantPage />
-  }
-])
+import Tracks from './routes'
+import Footer from './Components/Footer'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <RouterProvider router={tracks} />
-    </>
+      <Tracks />
+      <Footer />
+    </BrowserRouter>
   )
 }
 

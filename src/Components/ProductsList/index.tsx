@@ -1,27 +1,19 @@
-import ProductIndividual from '../../models/Product'
 import Product from '../Product'
-import { Container } from '../RestaurantsList/styles'
-import { ListProducts } from './styles'
+import { List } from './styles'
 
-export type Props = {
-  products: ProductIndividual[]
-}
-
-const ProductsList = ({ products }: Props) => (
-  <Container>
+const ProductsList = () => {
+  return (
     <div className="container">
-      <ListProducts>
-        {products.map((products) => (
-          <Product
-            key={products.id}
-            img={products.image}
-            title={products.title}
-            description={products.description}
-          />
-        ))}
-      </ListProducts>
+      <List>
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+      </List>
     </div>
-  </Container>
-)
+  )
+}
 
 export default ProductsList

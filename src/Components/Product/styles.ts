@@ -1,50 +1,47 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
-export const ProductContainer = styled.div`
+export const ProductContainer = styled.li`
+  position: relative;
   max-width: 320px;
-  width: 100%;
-  max-height: 340px;
   height: 340px;
   padding: 8px;
   background-color: ${colors.red};
-  position: relative;
+
+  h3 {
+    color: ${colors.pastel_tone};
+    font-weight: 900;
+    font-size: 16px;
+    margin: 8px 0;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.pastel_tone};
+  }
 `
 
-export const ImgProduct = styled.img`
+export const ProductImg = styled.img`
   width: 100%;
   height: 168px;
-  margin-bottom: 8px;
+  object-fit: cover;
 `
 
-export const TitleProduct = styled.h3`
-  color: ${colors.pastel_tone};
-  font-size: 16px;
-  font-weight: 900;
-`
-
-export const DescProduct = styled.p`
-  color: ${colors.pastel_tone};
-  font-size: 14px;
-  line-height: 22px;
-  margin: 8px 0;
-`
-
-export const BtnAddCart = styled.button`
-  width: 304px;
+export const Btn = styled.button`
+  position: absolute;
+  bottom: 8px;
+  width: calc(100% - 16px);
   height: 24px;
-  text-align: center;
-  color: ${colors.red};
-  font-size: 14px;
+  border: 1px solid ${colors.pastel_tone};
   font-weight: 700;
   background-color: ${colors.pastel_tone};
   cursor: pointer;
-  transition: ease 0.25s;
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
+  transition: all 0.25s;
 
   &:hover {
-    letter-spacing: 0.3px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: ${colors.pastel_tone};
+    border-color: ${colors.pastel_tone};
   }
 `

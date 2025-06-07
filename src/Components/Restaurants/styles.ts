@@ -13,6 +13,7 @@ export const BannerRestaurant = styled.img`
   width: 100%;
   height: 218px;
   margin-bottom: -5px;
+  object-fit: cover;
 `
 
 export const Tags = styled.div`
@@ -21,6 +22,7 @@ export const Tags = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
+  text-transform: capitalize;
 `
 
 export const InfosContainer = styled.div`
@@ -60,8 +62,11 @@ export const Description = styled.p`
 `
 
 export const Button = styled.button`
+  cursor: pointer;
+
   a {
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 8px 6px;
     background-color: ${colors.red};
@@ -69,14 +74,14 @@ export const Button = styled.button`
     max-height: 24px;
     color: ${colors.pastel_tone};
     font-weight: 700;
-    text-align: center;
+    border: 2px solid ${colors.red};
     transition: 0.25s;
   }
 
   &:hover {
     a {
-      text-decoration: underline;
-      box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.4);
+      background-color: ${colors.white};
+      color: ${colors.red};
     }
   }
 `

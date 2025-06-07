@@ -16,6 +16,7 @@ const ProductsList = ({ restaurant }: Props) => {
             img={item.foto}
             title={item.nome}
             description={item.descricao}
+            portion={item.porcao}
             price={item.preco}
           />
         ))}

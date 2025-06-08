@@ -49,7 +49,7 @@ const Product = ({ img, title, description, price, portion }: Props) => {
         <ModalContainer>
           <Content>
             <CloseBtn src={closeIcon} onClick={closeModal} />
-            <ModalImg src={img} alt="Imagem ilustrativa de PRODUTO" />
+            <ModalImg src={img} alt={`Imagem ilustrativa de ${title}`} />
             <div>
               <h3>{title}</h3>
               <p>
@@ -67,12 +67,3 @@ const Product = ({ img, title, description, price, portion }: Props) => {
 }
 
 export default Product
-
-// <Modal
-//   isOpen={modal}
-//   modalImg={img}
-//   modalTitle={title}
-//   modalDescription={description}
-//   modalPortion={portion}
-//   modalPrice={price}
-// // />

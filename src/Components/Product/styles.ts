@@ -1,11 +1,9 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ProductContainer = styled.li`
   position: relative;
-  max-width: 320px;
-  height: 340px;
-  padding: 8px;
+  padding: 8px 8px 34px;
   background-color: ${colors.red};
 
   h3 {
@@ -19,6 +17,9 @@ export const ProductContainer = styled.li`
     font-size: 14px;
     line-height: 22px;
     color: ${colors.pastel_tone};
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
   }
 `
 
@@ -96,6 +97,15 @@ export const Content = styled.div`
       margin-top: 50px;
     }
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 90vw;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 32px 12px 12px;
+    flex-direction: column;
+  }
 `
 
 export const ModalImg = styled.img`
@@ -103,6 +113,11 @@ export const ModalImg = styled.img`
   max-width: 280px;
   width: 100%;
   height: 280px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 100%;
+    height: 200px;
+  }
 `
 
 export const CloseBtn = styled.img`
@@ -120,4 +135,8 @@ export const BtnAdd = styled(Btn)`
   bottom: 32px;
   font-size: 14px;
   padding: 3px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 8px;
+  }
 `

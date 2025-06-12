@@ -12,8 +12,12 @@ import {
 } from './styles'
 
 import closeIcon from '../../assets/images/close_icon.png'
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
+  id: number
   img: string
   title: string
   description: string
@@ -21,7 +25,22 @@ type Props = {
   portion: string
 }
 
-const Product = ({ img, title, description, price, portion }: Props) => {
+const Product = ({ id, img, title, description, price, portion }: Props) => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(
+      add({
+        id: id,
+        nome: title,
+        foto: img,
+        preco: price,
+        quantidade: 1
+      })
+    ),
+      dispatch(open()),
+      closeModal()
+  }
   const getDescription = (desc: string) => {
     if (desc.length > 155) {
       return desc.slice(0, 155) + '...'
@@ -56,7 +75,9 @@ const Product = ({ img, title, description, price, portion }: Props) => {
                 {description}
                 <span>Serve de {portion}</span>
               </p>
-              <BtnAdd>Adicionar ao Carrinho - {priceFormat(price)}</BtnAdd>
+              <BtnAdd onClick={addToCart}>
+                Adicionar ao Carrinho - {priceFormat(price)}
+              </BtnAdd>
             </div>
           </Content>
           <div className="overlay" onClick={closeModal} />

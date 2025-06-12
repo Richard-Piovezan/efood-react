@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Background from '../../assets/images/background.png'
+import { breakpoints } from '../../styles'
 
 export const BannerContainer = styled.div`
   background-image: url(${Background});
@@ -9,6 +10,10 @@ export const BannerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 90px;
+  }
 `
 
 export const Slogan = styled.h2`
@@ -16,4 +21,9 @@ export const Slogan = styled.h2`
   font-size: 36px;
   font-weight: 900;
   max-width: 540px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 20px;
+    max-width: 80%;
+  }
 `

@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const RestaurantContainer = styled.div`
   max-width: 472px;
-  height: 398px;
   background-color: ${colors.white};
   position: relative;
   cursor: default;
@@ -38,6 +37,10 @@ export const InfosContainer = styled.div`
     position: absolute;
     bottom: 8px;
     left: 8px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 240px;
   }
 `
 

@@ -1,6 +1,6 @@
 import { BannerContainer } from '../BannerHome/styles'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeroContainer = styled(BannerContainer)`
   background-size: cover;
@@ -12,6 +12,10 @@ export const HeroContainer = styled(BannerContainer)`
     position: relative;
     text-transform: capitalize;
     font-size: 32px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 280px;
   }
 `
 

@@ -1,7 +1,7 @@
 import { Props } from '.'
 import styled from 'styled-components'
 import Background from '../../assets/images/background.png'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -16,11 +16,24 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 100px;
+
+    & .container {
+      padding: 28px 0;
+    }
+  }
 `
 
 export const ImgLogo = styled.img`
+  position: static;
   max-width: 126px;
   box-shadow: -1px 2px 5px 2px rgba(0, 0, 0, 0.4);
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 80px;
+  }
 `
 
 export const LinksContainer = styled.div<Props>`
@@ -36,5 +49,18 @@ export const LinksContainer = styled.div<Props>`
     &:hover {
       border-color: ${colors.red};
     }
+
+    @media (max-width: ${breakpoints.desktop}) {
+      font-size: 14px;
+    }
+  }
+`
+
+export const CartButton = styled(LinksContainer)`
+  cursor: pointer;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 80px;
+    text-align: center;
   }
 `

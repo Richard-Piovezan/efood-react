@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.div`
   background-color: ${colors.pastel_tone};
@@ -23,6 +23,10 @@ export const Container = styled.div`
     width: 480px;
     font-size: 10px;
     cursor: default;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 100%;
+    }
   }
 `
 

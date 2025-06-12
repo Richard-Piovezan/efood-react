@@ -13,6 +13,7 @@ const ProductsList = ({ restaurant }: Props) => {
         {restaurant.cardapio.map((item) => (
           <Product
             key={item.id}
+            id={item.id}
             img={item.foto}
             title={item.nome}
             description={item.descricao}

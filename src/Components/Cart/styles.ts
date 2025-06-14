@@ -29,7 +29,6 @@ export const Sidebar = styled.aside`
   z-index: 1;
   background-color: ${colors.red};
   padding: 32px 8px 0;
-  border-left: 2px solid ${colors.white};
   width: 360px;
   height: 100%;
 

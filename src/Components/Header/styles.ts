@@ -57,10 +57,23 @@ export const LinksContainer = styled.div<Props>`
 `
 
 export const CartButton = styled(LinksContainer)`
+  max-width: 120px;
+  text-align: center;
+  border-radius: 2px;
+  pointer-events: ${(props) => (props.home ? 'none' : 'default')};
+  border-bottom: 2px solid transparent;
+  transition: ease 0.25s;
   cursor: pointer;
+
+  a {
+    border: none;
+  }
+
+  &:hover {
+    border-color: ${colors.red};
+  }
 
   @media (max-width: ${breakpoints.tablet}) {
     max-width: 80px;
-    text-align: center;
   }
 `

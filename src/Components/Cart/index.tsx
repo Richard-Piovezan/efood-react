@@ -3,7 +3,6 @@ import trashIcon from '../../assets/images/lixo.png'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
-import closeIcon from '../../assets/images/close_icon.png'
 import { priceFormat } from '../RestaurantsList'
 
 const Cart = () => {
@@ -17,7 +16,7 @@ const Cart = () => {
 
   const getTotalPrice = () => {
     return items.reduce((totalValue, currentValue) => {
-      return (totalValue += currentValue.preco * currentValue.quantidade)
+      return (totalValue += currentValue.preco)
     }, 0)
   }
 
@@ -29,7 +28,6 @@ const Cart = () => {
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
-        <img src={closeIcon} alt="Icone de fechar" onClick={closeCart} />
         <ul>
           {items.map((item) => (
             <S.Order key={item.id}>
@@ -37,18 +35,18 @@ const Cart = () => {
               <div>
                 <h3>{item.nome}</h3>
                 <span>{priceFormat(item.preco)}</span>
-                <span>x{item.quantidade}</span>
               </div>
               <img
                 src={trashIcon}
                 alt="Icone de lixeira"
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 onClick={() => removeItem(item.id!)}
               />
             </S.Order>
           ))}
         </ul>
         <S.Price>
-          <span>Valor Total:</span>
+          <span>Valor total</span>
           <span>{priceFormat(getTotalPrice())}</span>
         </S.Price>
         <S.Button>Continuar com a entrega</S.Button>

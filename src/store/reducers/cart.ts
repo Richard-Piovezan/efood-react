@@ -5,7 +5,6 @@ type CartItem = {
   nome: string
   foto: string
   preco: number
-  quantidade: number
 }
 
 type CartState = {
@@ -23,27 +22,16 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<CartItem>) => {
-      const itemIndex = state.items.findIndex(
-        (item) => item.id === action.payload.id
-      )
+      const order = state.items.find((item) => item.id === action.payload.id)
 
-      if (itemIndex >= 0) {
-        state.items[itemIndex].quantidade += 1
+      if (!order) {
+        state.items.push(action.payload)
       } else {
-        state.items.push({ ...action.payload, quantidade: 1 })
+        alert('Produto já está no carrinho.')
       }
     },
     remove: (state, action: PayloadAction<number>) => {
-      const itemIndex = state.items.findIndex(
-        (item) => item.id === action.payload
-      )
-      if (itemIndex >= 0) {
-        if (state.items[itemIndex].quantidade > 1) {
-          state.items[itemIndex].quantidade -= 1
-        } else {
-          state.items.splice(itemIndex, 1)
-        }
-      }
+      state.items = state.items.filter((item) => item.id !== action.payload)
     },
     open: (state) => {
       state.isOpen = true

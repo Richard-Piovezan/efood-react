@@ -28,9 +28,9 @@ export const Overlay = styled.div`
 export const Sidebar = styled.aside`
   z-index: 1;
   background-color: ${colors.red};
-  padding: calc(52px + 28px) 8px 0;
+  padding: 32px 8px 0;
   border-left: 2px solid ${colors.white};
-  width: 344px;
+  width: 360px;
   height: 100%;
 
   > img:first-child {
@@ -76,7 +76,6 @@ export const Order = styled.div`
   > div {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
   h3 {
@@ -84,6 +83,7 @@ export const Order = styled.div`
     font-size: 18px;
     font-weight: 900;
     text-transform: capitalize;
+    margin-bottom: 16px;
   }
 
   span {
@@ -95,15 +95,9 @@ export const Order = styled.div`
     position: absolute;
     right: 8px;
     bottom: 8px;
-    padding: 4px;
-    width: 28px;
+    width: 18px;
     border-radius: 50%;
-    transition: ease 0.25s;
     cursor: pointer;
-
-    &:hover {
-      box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.5);
-    }
   }
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -128,7 +122,7 @@ export const Price = styled.div`
   & span {
     font-size: 14px;
     font-weight: 700;
-    color: ${colors.white};
+    color: ${colors.pastel_tone};
   }
 `
 
@@ -137,7 +131,7 @@ export const Button = styled.button`
   height: 24px;
   background-color: ${colors.pastel_tone};
   color: ${colors.red};
-  text-transform: uppercase;
+  text-transform: initial;
   font-size: 14px;
   font-weight: 700;
   border: 2px solid ${colors.pastel_tone};

@@ -20,7 +20,7 @@ const Header = ({ home }: Props) => {
   }
 
   const getCartQuantity = () => {
-    return items.reduce((total, item) => total + item.quantidade, 0)
+    return items.length
   }
 
   const quantityCart = (quantity: number) => {

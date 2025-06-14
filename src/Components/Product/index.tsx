@@ -34,8 +34,7 @@ const Product = ({ id, img, title, description, price, portion }: Props) => {
         id: id,
         nome: title,
         foto: img,
-        preco: price,
-        quantidade: 1
+        preco: price
       })
     ),
       dispatch(open()),

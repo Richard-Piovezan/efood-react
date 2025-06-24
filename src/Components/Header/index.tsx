@@ -36,10 +36,18 @@ const Header = ({ home }: Props) => {
     <S.HeaderContainer>
       <div className="container">
         <S.LinksContainer home={home}>
-          <Link to={'/'}>Restaurantes</Link>
+          <Link title="Retornar à página principal" to={'/'}>
+            Restaurantes
+          </Link>
         </S.LinksContainer>
-        <S.ImgLogo src={Logo} />
-        <S.CartButton onClick={openCart} home={home}>
+        <h1>
+          <S.ImgLogo src={Logo} alt="eFood" />
+        </h1>
+        <S.CartButton
+          title="Clique para abrir o carrinho"
+          onClick={openCart}
+          home={home}
+        >
           <a>{quantityCart(getCartQuantity())}</a>
         </S.CartButton>
       </div>

@@ -1,15 +1,6 @@
 import { useState } from 'react'
-import { priceFormat } from '../RestaurantsList'
-import {
-  Btn,
-  ProductContainer,
-  ProductImg,
-  BtnAdd,
-  CloseBtn,
-  Content,
-  ModalContainer,
-  ModalImg
-} from './styles'
+import { parseToBRL } from '../../utils'
+import * as S from './styles'
 
 import closeIcon from '../../assets/images/close_icon.png'
 import { useDispatch } from 'react-redux'
@@ -55,32 +46,35 @@ const Product = ({ id, img, title, description, price, portion }: Props) => {
 
   return (
     <>
-      <ProductContainer>
-        <ProductImg src={img} alt={`Imagem ilustrativa de ${title}`} />
+      <S.ProductContainer>
+        <S.ProductImg src={img} alt={`Imagem ilustrativa de ${title}`} />
         <h3>{title}</h3>
         <p>{getDescription(description)}</p>
-        <Btn onClick={() => setModal(true)}>
-          {priceFormat(price)} - Mais Detalhes
-        </Btn>
-      </ProductContainer>
+        <S.Btn title="Clique para mais detalhes" onClick={() => setModal(true)}>
+          {parseToBRL(price)} - Mais Detalhes
+        </S.Btn>
+      </S.ProductContainer>
       {modal ? (
-        <ModalContainer>
-          <Content>
-            <CloseBtn src={closeIcon} onClick={closeModal} />
-            <ModalImg src={img} alt={`Imagem ilustrativa de ${title}`} />
+        <S.ModalContainer>
+          <S.Content>
+            <S.CloseBtn src={closeIcon} onClick={closeModal} />
+            <S.ModalImg src={img} alt={`Imagem ilustrativa de ${title}`} />
             <div>
               <h3>{title}</h3>
               <p>
                 {description}
                 <span>Serve de {portion}</span>
               </p>
-              <BtnAdd onClick={addToCart}>
-                Adicionar ao Carrinho - {priceFormat(price)}
-              </BtnAdd>
+              <S.BtnAdd
+                title="Clique para adicionar ao carrinho"
+                onClick={addToCart}
+              >
+                Adicionar ao Carrinho - {parseToBRL(price)}
+              </S.BtnAdd>
             </div>
-          </Content>
+          </S.Content>
           <div className="overlay" onClick={closeModal} />
-        </ModalContainer>
+        </S.ModalContainer>
       ) : null}
     </>
   )

@@ -5,7 +5,8 @@ export const colors = {
   white: '#FFFFFF',
   red: '#E66767',
   off_white: '#FFF8F2',
-  pastel_tone: '#FFEBD9'
+  pastel_tone: '#FFEBD9',
+  error: '#FF0000'
 }
 
 export const breakpoints = {
@@ -23,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     color: ${colors.red};
+    outline: none;
   }
 
   body {

@@ -46,7 +46,9 @@ const Restaurant = ({
         </S.InfosHeader>
         <S.Description>{getDescription(description)}</S.Description>
         <S.Button>
-          <Link to={`/cardapio/${id}`}>Saiba Mais</Link>
+          <Link title="Clique para abrir o cardápio" to={`/cardapio/${id}`}>
+            Saiba Mais
+          </Link>
         </S.Button>
       </S.InfosContainer>
     </S.RestaurantContainer>

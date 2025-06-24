@@ -17,6 +17,10 @@ export const HeaderContainer = styled.div`
     align-items: center;
   }
 
+  h1 {
+    line-height: 0;
+  }
+
   @media (max-width: ${breakpoints.tablet}) {
     height: 100px;
 

@@ -10,6 +10,7 @@ const Footer = () => (
     <ul>
       <li>
         <a
+          title="Abrir perfil do Instagram"
           href="//github.com/Richard-Piovezan"
           target="_blank"
           rel="noreferrer"
@@ -19,6 +20,7 @@ const Footer = () => (
       </li>
       <li>
         <a
+          title="Abrir perfil do Facebook"
           href="//github.com/Richard-Piovezan"
           target="_blank"
           rel="noreferrer"
@@ -28,6 +30,7 @@ const Footer = () => (
       </li>
       <li>
         <a
+          title="Abrir perfil do X"
           href="//github.com/Richard-Piovezan"
           target="_blank"
           rel="noreferrer"

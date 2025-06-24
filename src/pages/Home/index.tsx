@@ -1,42 +1,27 @@
 import Banner from '../../Components/BannerHome'
 import Header from '../../Components/Header'
+import Loader from '../../Components/Loader'
 import RestaurantsList from '../../Components/RestaurantsList'
 import { useGetRestaurantsListQuery } from '../../services/api'
 
-export type RestaurantAPI = {
-  id: number
-  titulo: string
-  destacado?: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: [
-    {
-      foto: string
-      preco: number
-      id: number
-      nome: string
-      descricao: string
-      porcao: string
-    }
-  ]
-}
-
 const Home = () => {
-  const { data: restaurantList } = useGetRestaurantsListQuery()
+  const { data: restaurantList, isLoading: isLoadingRestaurantList } =
+    useGetRestaurantsListQuery()
 
   if (restaurantList) {
     return (
       <>
         <Header home={true} />
         <Banner />
-        <RestaurantsList restaurant={restaurantList} />
+        <RestaurantsList
+          restaurant={restaurantList}
+          isLoading={isLoadingRestaurantList}
+        />
       </>
     )
   }
 
-  return <h4>Carregando...</h4>
+  return <Loader />
 }
 
 export default Home

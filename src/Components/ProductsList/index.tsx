@@ -1,12 +1,17 @@
-import { RestaurantAPI } from '../../pages/Home'
+import Loader from '../Loader'
 import Product from '../Product'
 import { List } from './styles'
 
 type Props = {
   restaurant: RestaurantAPI
+  isLoading: boolean
 }
 
-const ProductsList = ({ restaurant }: Props) => {
+const ProductsList = ({ restaurant, isLoading }: Props) => {
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <div className="container">
       <List>

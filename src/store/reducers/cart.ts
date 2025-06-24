@@ -10,11 +10,13 @@ type CartItem = {
 type CartState = {
   items: CartItem[]
   isOpen: boolean
+  checkout: boolean
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  checkout: false
 }
 
 const cartSlice = createSlice({
@@ -38,9 +40,19 @@ const cartSlice = createSlice({
     },
     close: (state) => {
       state.isOpen = false
+    },
+    openCheckout: (state) => {
+      state.checkout = true
+    },
+    closeCheckout: (state) => {
+      state.checkout = false
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
 
-export const { add, remove, open, close } = cartSlice.actions
+export const { add, remove, open, close, openCheckout, closeCheckout, clear } =
+  cartSlice.actions
 export default cartSlice.reducer

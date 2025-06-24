@@ -3,12 +3,14 @@ import Header from '../../Components/Header'
 import Hero from '../../Components/Hero'
 import ProductsList from '../../Components/ProductsList'
 import { useGetMenuListQuery } from '../../services/api'
+import Loader from '../../Components/Loader'
 
 const Menu = () => {
   const { id } = useParams()
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const { data: restaurant } = useGetMenuListQuery(id!)
+  const { data: restaurant, isLoading: isLoadingRestaurant } =
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    useGetMenuListQuery(id!)
 
   if (restaurant) {
     return (
@@ -19,12 +21,12 @@ const Menu = () => {
           heroImg={restaurant.capa}
           type={restaurant.tipo}
         />
-        <ProductsList restaurant={restaurant} />
+        <ProductsList restaurant={restaurant} isLoading={isLoadingRestaurant} />
       </>
     )
   }
 
-  return <h4>Carregando...</h4>
+  return <Loader />
 }
 
 export default Menu

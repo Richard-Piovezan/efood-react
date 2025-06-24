@@ -141,4 +141,14 @@ export const Button = styled.button`
     color: ${colors.pastel_tone};
     background-color: rgba(0, 0, 0, 0.3);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: default;
+
+    &:hover {
+      color: ${colors.red};
+    }
+  }
 `
